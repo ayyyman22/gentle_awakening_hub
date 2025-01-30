@@ -1,6 +1,8 @@
-Gentle Wake
+# Gentle Wake
+***
 
-Members
+# Members
+***
 Ayman Abdul Aziz
 [abuama-4@student.ltu.se]
 
@@ -11,19 +13,20 @@ Kenneth Lim Tze Kang
 [kenlim-4@student.ltu.se]
 
 
-Project Specification
+# Project Specification
+***
 *list ideas below*
 
 
-Grading
+# Grading expectations
 
 [Ayman Abdul Aziz]
-
+Grade 3
 
 
 [Felix Lara Guerrero]
-
+Grade 3
 
 
 [Kenneth Lim Tze Kang]
-
+Grade 3
