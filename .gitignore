@@ -1,0 +1,7 @@
+*.bak
+*.log
+__pycache__/
+*.swp
+*.dcm
+*.bkp
+*.cache
