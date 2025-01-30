@@ -1,8 +1,8 @@
 # Gentle Wake
-***
+
 
 # Members
-***
+
 Ayman Abdul Aziz
 [abuama-4@student.ltu.se]
 
@@ -14,7 +14,6 @@ Kenneth Lim Tze Kang
 
 
 # Project Specification
-***
 *list ideas below*
 
 
