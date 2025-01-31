@@ -19,7 +19,7 @@ The Gentle Wake is designed to provide a smooth and natural wake-up experience u
 
 
 
-Project parts 
+# Project parts 
 OLED: https://shop.pchbutik.se/en/kretskort/920-oled-display-096-tum-128x64-gula-och-blaa-pixlar-i2c-ssd1306.html
 
 Speaker: 
