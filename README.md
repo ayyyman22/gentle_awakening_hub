@@ -18,7 +18,7 @@ The Gentle Wake is designed to provide a smooth and natural wake-up experience u
 
 
 
-#Hardware features
+# Hardware features
 Main Wakeup Clock Board:
 
     OLED Display (I2C): Displays the current time and alarm settings.
@@ -36,7 +36,7 @@ Main Wakeup Clock Board:
 
 
 
-#Individual grading goals and contributions
+# Individual grading goals and contributions
 Ayman Abdul Aziz
 3)Contribute to mandatory goals
 
