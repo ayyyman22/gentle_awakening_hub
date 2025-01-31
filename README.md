@@ -13,13 +13,43 @@ Kenneth Lim Tze Kang
 [kenlim-4@student.ltu.se]
 
 
-# Project Specification
+# Functionality
 The Gentle Wake is designed to provide a smooth and natural wake-up experience using a combination of light and sound. Using a real-time clock (RTC) with a 32kHz cyrstal and an OLED display for clear visibility. Through the switches, the alarm supports snooze functionality, allowing a configurable delay before retriggering and an alarm-off mode to disable alerts completely.
 
 
 
+#Hardware features
+Main Wakeup Clock Board:
 
-# Project parts 
+    OLED Display (I2C): Displays the current time and alarm settings.
+    Speaker: Produces the wake-up sound with a voltage-varying circuit.
+    Analog Temperature Sensor: Monitors room temperature and sends analog data to the microcontroller.
+    Three Switches:
+        Alarm Set Button – Used to configure the alarm time.
+        Snooze Button – Temporarily delays the alarm.
+        Alarm Off Button – Completely turns off the alarm.
+    Battery Holder: Powers the system and maintains clock settings.
+    32kHz Crystal: Provides accurate real-time clock (RTC) functionality.
+    Resistors: Used for voltage regulation, pull-up/down configurations, and signal conditioning.
+
+
+
+
+
+#Individual grading goals and contributions
+Ayman Abdul Aziz
+3)Contribute to mandatory goals
+
+Felix Lara Guerrero 
+3)Contribute to mandatory goals
+
+Kenneth Lim Tze Kang
+3)Contribute to mandatory goals
+
+
+
+
+# HW references 
 OLED: https://shop.pchbutik.se/en/kretskort/920-oled-display-096-tum-128x64-gula-och-blaa-pixlar-i2c-ssd1306.html
 
 Speaker: 
