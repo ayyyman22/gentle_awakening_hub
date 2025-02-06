@@ -827,178 +827,6 @@
 				)
 			)
 		)
-		(symbol "Device:Battery_Cell"
-			(pin_numbers hide)
-			(pin_names
-				(offset 0) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "BT"
-				(at 2.54 2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "Battery_Cell"
-				(at 2.54 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 1.524 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 1.524 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Single-cell battery"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "battery cell"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Battery_Cell_0_1"
-				(rectangle
-					(start -2.286 1.778)
-					(end 2.286 1.524)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start -1.524 1.016)
-					(end 1.524 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0.762) (xy 0 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 1.778) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 3.048) (xy 1.778 3.048)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 3.556) (xy 1.27 2.54)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "Battery_Cell_1_1"
-				(pin passive line
-					(at 0 5.08 270)
-					(length 2.54)
-					(name "+"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 90)
-					(length 2.54)
-					(name "-"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "Device:C"
 			(pin_numbers hide)
 			(pin_names
@@ -4022,6 +3850,10 @@
 		(uuid "70890aed-0fcf-47e0-9cba-6e7311dda884")
 	)
 	(no_connect
+		(at 171.45 101.6)
+		(uuid "955a124a-6bbf-4c48-8963-5f7bd2ee61e5")
+	)
+	(no_connect
 		(at 104.14 172.72)
 		(uuid "a694b976-bebd-48cc-8ac4-afb22f5bc1f4")
 	)
@@ -4076,16 +3908,6 @@
 			(type default)
 		)
 		(uuid "08ade5f2-7753-44c5-9216-9daff69a8da6")
-	)
-	(wire
-		(pts
-			(xy 175.26 101.6) (xy 175.26 104.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "090443e5-d61c-444f-8dd8-dba6386278d7")
 	)
 	(wire
 		(pts
@@ -4449,16 +4271,6 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 101.6) (xy 175.26 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5d95617c-fc8d-403b-88c1-7fb089593582")
-	)
-	(wire
-		(pts
 			(xy 137.16 71.12) (xy 134.62 71.12)
 		)
 		(stroke
@@ -4699,16 +4511,6 @@
 	)
 	(wire
 		(pts
-			(xy 100.33 128.27) (xy 100.33 137.16)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9fb53b14-749b-4116-9c2b-22e780ebcd78")
-	)
-	(wire
-		(pts
 			(xy 48.26 101.6) (xy 54.61 101.6)
 		)
 		(stroke
@@ -4726,16 +4528,6 @@
 			(type default)
 		)
 		(uuid "a82d7c45-0193-4928-a786-3f0a8cc58ce9")
-	)
-	(wire
-		(pts
-			(xy 109.22 128.27) (xy 100.33 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b0bbbf34-51da-47ff-8312-8b9169051ca7")
 	)
 	(wire
 		(pts
@@ -5006,16 +4798,6 @@
 			(type default)
 		)
 		(uuid "e9c0b04b-54a1-495a-bcba-bd06fe289d90")
-	)
-	(wire
-		(pts
-			(xy 109.22 109.22) (xy 109.22 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "eb153f35-369b-4f1a-84b3-c11e8e9117b3")
 	)
 	(wire
 		(pts
@@ -5692,72 +5474,6 @@
 			(project "baseboard"
 				(path "/6da20767-3083-4964-aa97-cf3556ca420b"
 					(reference "#PWR013")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 175.26 104.14 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2221ebdb-108f-410c-88e7-f4b42498de74")
-		(property "Reference" "#PWR022"
-			(at 175.26 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 175.26 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 175.26 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 175.26 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 175.26 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "af8aa2db-a736-48e4-9c51-64126b411879")
-		)
-		(instances
-			(project "baseboard"
-				(path "/6da20767-3083-4964-aa97-cf3556ca420b"
-					(reference "#PWR022")
 					(unit 1)
 				)
 			)
@@ -9884,72 +9600,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 107.95 137.16 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "c05733d0-6866-4aaa-af93-900ee5d264df")
-		(property "Reference" "#PWR047"
-			(at 107.95 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 107.95 142.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 107.95 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 107.95 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 107.95 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7ad2cfea-d59f-4391-9506-a2519c4bca2f")
-		)
-		(instances
-			(project "baseboard"
-				(path "/6da20767-3083-4964-aa97-cf3556ca420b"
-					(reference "#PWR047")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector_Generic:Conn_01x04")
 		(at 176.53 140.97 0)
 		(unit 1)
@@ -10962,74 +10612,6 @@
 			(project "baseboard"
 				(path "/6da20767-3083-4964-aa97-cf3556ca420b"
 					(reference "#PWR029")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:Battery_Cell")
-		(at 105.41 137.16 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f31f03d2-1756-419c-9349-547439aece11")
-		(property "Reference" "BT1"
-			(at 103.5685 129.54 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Battery_Cell"
-			(at 103.5685 132.08 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 103.886 137.16 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 103.886 137.16 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Single-cell battery"
-			(at 105.41 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "8d32af52-18fe-4336-a217-9642eb424be0")
-		)
-		(pin "1"
-			(uuid "031bcce2-5983-4c7e-91e1-8dea7093ce8c")
-		)
-		(instances
-			(project ""
-				(path "/6da20767-3083-4964-aa97-cf3556ca420b"
-					(reference "BT1")
 					(unit 1)
 				)
 			)
