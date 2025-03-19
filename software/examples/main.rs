@@ -1,63 +1,57 @@
-// main.rs
 #![no_std]
 #![no_main]
 
+use cortex_m_rt::entry;
+use nrf52833_hal::{
+    gpio::p0::Parts,
+    pac,
+    prelude::*,
+    rtc::Rtc,
+    pwm::Pwm,
+    twim::{Twim, Pins, Frequency},
+};
+use panic_halt as _;
+
 mod cli;
-mod alarm;
+mod rtc;
 mod led;
 mod power;
-mod display;
-mod speaker;
+mod sound;
 mod buttons;
-
-use cortex_m_rt::entry;
-use panic_halt as _;
-use nrf52833_hal as hal;
-use hal::pac;
-use hal::prelude::*;
+mod display;
+mod alarm;
 
 #[entry]
 fn main() -> ! {
-    // Take ownership of the device peripherals.
-    let p = pac::Peripherals::take().unwrap();
-    let port0 = hal::gpio::p0::Parts::new(p.P0);
+    let mut board = pac::Peripherals::take().unwrap();
+    let _core = pac::CorePeripherals::take().unwrap();
+    let port0 = Parts::new(board.P0);
 
-    // Initialize LED on a chosen pin (example: P0.17)
-    let led_pin = port0.p0_17.into_push_pull_output(hal::gpio::Level::Low);
-    led::init(led_pin);
+    // Clone pins before passing to avoid move errors
+    let sda = port0.p0_26.into_floating_input().degrade();
+    let scl = port0.p0_27.into_floating_input().degrade();
 
-    // Initialize RTC and Alarm (using RTC0; the 32kHz crystal is assumed to be connected as per board design).
-    alarm::init(p.RTC0);
+    // RTC Setup
+    let mut rtc = Rtc::new(board.RTC0, 0).unwrap();
+    rtc.enable_counter();
 
-    // Initialize CLI (e.g., via UART on pins P0.06 and P0.08).
-    cli::init();
-
-    // Initialize OLED display via I2C (example pins P0.14=SCL, P0.15=SDA).
-    display::init(p.TWIM0, port0.p0_14, port0.p0_15);
-
-    // Initialize Speaker (for wake-up sound) on an appropriate PWM channel.
-    speaker::init();
-
-    // Initialize buttons (Alarm Set and Snooze).
-    buttons::init(
-        port0.p0_20.into_pullup_input(), // Example: Alarm Set Button
-        port0.p0_21.into_pullup_input(), // Example: Snooze Button
+    // I2C OLED Setup
+    let i2c = Twim::new(
+        board.TWIM0,
+        Pins { scl, sda },
+        Frequency::K400,
     );
 
+    // LED PWM Setup
+    let mut led_pwm = Pwm::new(board.PWM1);
+    led_pwm.enable();
+
+    // UART Setup
+    cli::init_uart(&mut board, &port0);
+
+    // Main Loop
     loop {
-        // Process any incoming CLI commands.
-        cli::process();
-
-        // Check if it’s time to trigger the alarm or pre-wake sequence.
-        alarm::check();
-
-        // Update the OLED display with current time and alarm settings.
-        display::update();
-
-        // Poll button states and handle their events.
-        buttons::process();
-
-        // Manage power state (enter low-power mode if idle).
-        power::manage();
+        cli::handle_commands(&mut rtc, &mut led_pwm);
+        buttons::check_buttons(&mut rtc);
     }
 }

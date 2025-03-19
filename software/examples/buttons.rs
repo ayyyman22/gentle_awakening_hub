@@ -1,42 +1,27 @@
-// buttons.rs
-use nrf52833_hal as hal;
-use hal::gpio::{p0::P0_x, Input, PullUp}; // Replace P0_x with actual pin types.
-use hal::prelude::*;
+use nrf52833_hal::gpio::{Input, PullUp, p0::Parts};
+use embedded_hal::digital::v2::InputPin;
+use nrf52833_hal::rtc::{Rtc, RtcCompareReg};
+use nrf52833_hal::pac;
 
-// Struct to hold button states.
 pub struct Buttons {
-    pub alarm_set: bool,
-    pub snooze: bool,
+    pub alarm_button: Input<PullUp>,
+    pub snooze_button: Input<PullUp>,
 }
 
-static mut BUTTONS: Buttons = Buttons {
-    alarm_set: false,
-    snooze: false,
-};
+pub fn check_buttons(rtc: &mut Rtc<pac::RTC0>) {
+    let mut board = pac::Peripherals::take().unwrap();
+    let port0 = Parts::new(board.P0);
 
-pub fn init<B1, B2>(mut alarm_set_pin: B1, mut snooze_pin: B2)
-where
-    B1: hal::gpio::Pin<Input<PullUp>>,
-    B2: hal::gpio::Pin<Input<PullUp>>,
-{
-    // Optionally configure interrupts here.
-    // For now, we assume the pins are already configured as pull-ups.
-    // Save or assign these pins to globals if needed.
-}
+    let buttons = Buttons {
+        alarm_button: port0.p0_11.into_pullup_input(),
+        snooze_button: port0.p0_12.into_pullup_input(),
+    };
 
-pub fn process() {
-    // Poll the button pins and trigger actions when pressed.
-    // Replace the following stubs with actual pin reads:
-    let alarm_set_pressed = false; // e.g., alarm_set_pin.is_low().unwrap()
-    let snooze_pressed = false;    // e.g., snooze_pin.is_low().unwrap()
-
-    if alarm_set_pressed {
-        // Handle Alarm Set button press: perhaps enter a mode to adjust alarm time or turn off alarm.
-        crate::alarm::alarm_off();
+    if buttons.alarm_button.is_low().unwrap() {
+        rtc.set_compare(RtcCompareReg::Compare0, 0).unwrap(); // Stop alarm
     }
 
-    if snooze_pressed {
-        // Handle Snooze button press: call the snooze functionality.
-        crate::alarm::snooze();
+    if buttons.snooze_button.is_low().unwrap() {
+        rtc.set_compare(RtcCompareReg::Compare0, rtc.get_counter() + 60).unwrap();
     }
 }
