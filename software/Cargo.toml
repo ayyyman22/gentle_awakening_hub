@@ -51,14 +51,15 @@ optional = true
 [features]
 52840 = ["nrf52840-hal"]
 52833 = ["nrf52833-hal"]
-default = ["52840"]
+default = ["52833"]
 
 [profile.dev]
 incremental = false # better debug 
 codegen-units = 1   # better debug
 opt-level = 0       # no optimization
 lto = false         # no optimization
-#overflow-checks = false # uncomment to disable overflow checks for dev/debug builds
+debug = 2
+# overflow-checks = false # uncomment to disable overflow checks for dev/debug builds  
 
 [profile.release]
 incremental = false    # better debug and also better optimizations
